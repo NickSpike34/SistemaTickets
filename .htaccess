@@ -1,0 +1,26 @@
+# ==========================================================
+# CONFIGURACIÓN APACHE (.htaccess)
+# Sistema de Soporte Técnico tipo Semáforo
+# ==========================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Desactivar navegación de directorios
+    Options -Indexes
+
+    # Permitir cabeceras UTF-8 por defecto
+    AddDefaultCharset UTF-8
+</IfModule>
+
+# Proteger archivos de configuración y base de datos
+<FilesMatch "\.(sql|log|ini|md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

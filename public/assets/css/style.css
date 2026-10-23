@@ -1,0 +1,239 @@
+/* ==========================================================
+   SISTEMA DE SOPORTE TÉCNICO - ESTILOS PRINCIPALES
+   Colores Oficiales del Semáforo y Diseño Moderno
+   ========================================================== */
+
+:root {
+    --bg-dark-tv: #0f172a;
+    --card-dark-tv: #1e293b;
+    --text-light-tv: #f8fafc;
+    --border-dark-tv: #334155;
+    
+    --font-primary: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: #f4f6f9;
+    color: #334155;
+    min-height: 100vh;
+}
+
+/* Navbar Personalizada */
+.navbar-custom {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Tarjetas y Contenedores */
+.card-custom {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-custom-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1.25rem 1.5rem;
+    font-weight: 700;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Tarjetas de Semáforo */
+.semaforo-card {
+    border-radius: 14px;
+    padding: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.semaforo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+.semaforo-card.bg-pendiente {
+    background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
+}
+
+.semaforo-card.bg-en-proceso {
+    background: linear-gradient(135deg, #ffc107 0%, #d39e00 100%);
+    color: #1a1a1a !important;
+}
+
+.semaforo-card.bg-en-espera {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+}
+
+.semaforo-card.bg-atendido {
+    background: linear-gradient(135deg, #198754 0%, #146c43 100%);
+}
+
+.semaforo-card .count {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.semaforo-card .label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Dashboard TV Mode */
+body.tv-mode {
+    background-color: var(--bg-dark-tv);
+    color: var(--text-light-tv);
+    overflow-x: hidden;
+}
+
+.tv-container {
+    padding: 1.5rem;
+    max-width: 100%;
+}
+
+.tv-header {
+    border-bottom: 2px solid var(--border-dark-tv);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tv-table {
+    background: var(--card-dark-tv);
+    border-radius: 12px;
+    border: 1px solid var(--border-dark-tv);
+    color: var(--text-light-tv);
+}
+
+.tv-table th {
+    background-color: #0b1120;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-color: var(--border-dark-tv);
+    padding: 14px;
+}
+
+.tv-table td {
+    padding: 16px 14px;
+    vertical-align: middle;
+    border-color: var(--border-dark-tv);
+    font-size: 1.05rem;
+}
+
+.tv-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.tv-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Indicador de pulsación / alerta para pendientes */
+.pulse-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+    animation: pulse-red 1.6s infinite;
+}
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    }
+}
+
+/* Reloj digital para TV */
+.digital-clock {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.7rem;
+    font-weight: 700;
+    background: #000;
+    padding: 6px 16px;
+    border-radius: 8px;
+    color: #38bdf8;
+    border: 1px solid #1e293b;
+    display: inline-block;
+}
+
+/* Timeline de Comentarios en Ticket */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    list-style: none;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    width: 2px;
+    background: #e2e8f0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0d6efd;
+    border: 2px solid #fff;
+}
+
+.timeline-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    border: none;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
+}
